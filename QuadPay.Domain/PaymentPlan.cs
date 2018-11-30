@@ -61,8 +61,8 @@ namespace QuadPay.Domain
 
         public decimal OustandingBalance()
         {
-            // TODO
-            return 0;
+            var pendingPaymentsAmount = Installments.Where(i => i.IsPending || i.IsDefaulted).Sum(i => i.Amount);
+            return pendingPaymentsAmount;
         }
 
         public decimal AmountPastDue(DateTime currentDate)
@@ -102,20 +102,27 @@ namespace QuadPay.Domain
                 throw new ArgumentException($"No Installment Found for Provided installmentId: {installmentId}", nameof(installmentId));
             }
 
-            var installment = Installments
-                                .Where(i => i.Id == installmentId)
-                                .FirstOrDefault();
+            var installment = Installments.Where(i => i.Id == installmentId).FirstOrDefault();
 
             if (installment.Amount != amount) {
                 throw new ArgumentException($"Payment amount must match installment amount.", nameof(amount));
             }
 
-            installment.SetPaid("passig in a payment referced");
+            //we call payment domain logic here, ie. service call or writing to an event stream
+            var paymentReferenceId = Guid.NewGuid(); //in this insstance, i'm just setting some guid to be the payment reference id, but a real-world implementation would
+            //call another service i.e 3rd party payment API
+            installment.SetPaid(paymentReferenceId.ToString());
         }
 
         // Returns: Amount to refund via PaymentProvider
         public decimal ApplyRefund(Refund refund)
         {
+            var paidAmounts = Installments.Where(i => i.IsPaid).Sum(j => j.Amount);
+
+            //call Payment Provider to retrieve refund
+            //refund.Amount
+
+
             // TODO
             return 0;
         }

@@ -8,9 +8,10 @@ namespace QuadPay.Domain
         public DateTime Date { get; set; }
         public decimal Amount { get; set; }
         private InstallmentStatus InstallmentStatus;
-        public string PaymentReference { get; }
+        public string PaymentReference { get; private set; }
+
         // Date this Installment was marked 'Paid'
-        public DateTime SettlementDate { get; }
+        public DateTime SettlementDate { get; private set; }
 
         //Provide Default Constructor
         public Installment() { }
@@ -22,29 +23,35 @@ namespace QuadPay.Domain
             Date = dueDate;
         }
 
-        public bool IsPaid { 
-            get {
-                // TODO
-                return true;
+        public bool IsPaid 
+        { 
+            get 
+            {
+                return (InstallmentStatus == InstallmentStatus.Paid) ? true : false;
             }
         }
 
-        public bool IsDefaulted { 
-            get {
-                // TODO
-                return true;
+        public bool IsDefaulted 
+        {
+            get
+            {
+                return (InstallmentStatus == InstallmentStatus.Defaulted) ? true : false;
             }
         }
 
-        public bool IsPending { 
-            get {
-                // TODO
-                return true;
+        public bool IsPending 
+        {
+            get
+            {
+                return (InstallmentStatus == InstallmentStatus.Pending) ? true : false;
             }
         }
 
-        public void SetPaid(string paymentReference) {
-            // TODO
+        public void SetPaid(string paymentReference)
+        {    
+            PaymentReference = paymentReference;
+            InstallmentStatus = InstallmentStatus.Paid;
+            SettlementDate = DateTime.Now;
         }
     }
 
