@@ -8,23 +8,24 @@ namespace QuadPay.Test
     {
         [Theory]
         [InlineData(-100, 4, 2)]
-        [InlineData(123.23, 0, 2)]
+        [InlineData(123.23, 0, 2)] // What other situations should we be testing?
 
-        // TODO What other situations should we be testing?
-        [InlineData(0.00, 4, 14)]
-        [InlineData(500.00, 4, 0)]
+        [InlineData(0.00, 4, 14)]    //test when amount is $0.00, the payment plan cannot be created
+        [InlineData(500.00, -5, 0)]  //test when the installment count  cannot be a negative value
+        [InlineData(500.00, 4, 0)]   //test when the number of days between installment payments cannot be 0 
+        [InlineData(500.00, 4, -10)] //test when the number of days between installment payments cannot be a negative value 
         public void ShouldThrowExceptionForInvalidParameters(decimal amount, int installmentCount, int installmentIntervalDays)
         {
-
             Assert.Throws<ArgumentException>(() => {
                 var paymentPlan = new PaymentPlan(amount, installmentCount, installmentIntervalDays);
             });
         }
 
         [Theory]
-        [InlineData(1000, 4, 2)]
-        [InlineData(123.23, 2, 2)]
-        // TODO What other situations should we be testing?
+        //[InlineData(1000, 4, 2)]
+        //[InlineData(123.23, 2, 2)]   // TODO What other situations should we be testing?
+
+        [InlineData(10000, 1, 1)] //test that a payment plan can be a full payment (Perhaps this is in the domain logic?)
         public void ShouldCreateCorrectNumberOfInstallments(decimal amount, int installmentCount, int installmentIntervalDays)
         {
             var paymentPlan = new PaymentPlan(amount, installmentCount, installmentIntervalDays);
@@ -55,5 +56,7 @@ namespace QuadPay.Test
             TODO
             Increase domain test coverage
          */
+
+        //Test the total installments owed shoudl add up to the original amount;
     }
 }

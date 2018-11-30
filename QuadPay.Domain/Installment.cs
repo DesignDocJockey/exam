@@ -12,9 +12,11 @@ namespace QuadPay.Domain
         // Date this Installment was marked 'Paid'
         public DateTime SettlementDate { get; }
 
+        //Provide Default Constructor
+        public Installment() { }
+
         public Installment(decimal amountDue, DateTime dueDate)
         {
-            // TODO
             Amount = amountDue;
             Date = dueDate;
         }

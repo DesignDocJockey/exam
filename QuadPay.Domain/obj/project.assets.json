@@ -176,30 +176,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Operator\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/hwong/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Dev\\quadpay\\CSharp\\QuadPay.API\\QuadPay.Domain\\QuadPay.Domain.csproj",
+      "projectUniqueName": "/Users/hwong/dev/exam/QuadPay.Domain/QuadPay.Domain.csproj",
       "projectName": "QuadPay.Domain",
-      "projectPath": "C:\\Dev\\quadpay\\CSharp\\QuadPay.API\\QuadPay.Domain\\QuadPay.Domain.csproj",
-      "packagesPath": "C:\\Users\\Operator\\.nuget\\packages\\",
-      "outputPath": "C:\\Dev\\quadpay\\CSharp\\QuadPay.API\\QuadPay.Domain\\obj\\",
+      "projectPath": "/Users/hwong/dev/exam/QuadPay.Domain/QuadPay.Domain.csproj",
+      "packagesPath": "/Users/hwong/.nuget/packages/",
+      "outputPath": "/Users/hwong/dev/exam/QuadPay.Domain/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Operator\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/hwong/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -219,7 +217,7 @@
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.0.3, )",
+            "version": "2.0.3",
             "autoReferenced": true
           }
         },
