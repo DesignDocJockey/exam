@@ -4,7 +4,7 @@ namespace QuadPay.Domain
 {
     public class Installment
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
         public DateTime Date { get; set; }
         public decimal Amount { get; set; }
         private InstallmentStatus InstallmentStatus;
@@ -17,6 +17,7 @@ namespace QuadPay.Domain
 
         public Installment(decimal amountDue, DateTime dueDate)
         {
+            Id = Guid.NewGuid();
             Amount = amountDue;
             Date = dueDate;
         }

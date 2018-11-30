@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace QuadPay.Domain
@@ -11,7 +12,7 @@ namespace QuadPay.Domain
 
     public class PaymentPlan
     {
-        public Guid Id { get; }
+        public Guid Id { get; private set; }
         public IList<Installment> Installments { get; private set; }
         public IList<Refund> Refunds { get; }
         public DateTime OriginationDate { get; }
@@ -38,6 +39,7 @@ namespace QuadPay.Domain
             NumberOfInstallments = installmentCount;
             InstallmentIntervalDays = installmentIntervalDays;
             OriginationDate = DateTime.Now;
+            Id = Guid.NewGuid();
 
             InitializeInstallments();
         }
@@ -51,8 +53,10 @@ namespace QuadPay.Domain
 
         public Installment FirstInstallment()
         {
-            // TODO
-            return new Installment();
+            if (!Installments.Any())
+                throw new ApplicationException($"No Installments for Payment Plan Id {Id.ToString()}");
+
+            return Installments.OrderBy(i => i.Date).FirstOrDefault();
         }
 
         public decimal OustandingBalance()
@@ -92,9 +96,21 @@ namespace QuadPay.Domain
         }
 
         // We only accept payments matching the Installment Amount.
-        public void MakePayment(decimal amount, Guid installmentId)
+        public void MakePayment(decimal amount, Guid installmentId) 
         {
+            if(!Installments.Any(i => i.Id == installmentId)) {
+                throw new ArgumentException($"No Installment Found for Provided installmentId: {installmentId}", nameof(installmentId));
+            }
 
+            var installment = Installments
+                                .Where(i => i.Id == installmentId)
+                                .FirstOrDefault();
+
+            if (installment.Amount != amount) {
+                throw new ArgumentException($"Payment amount must match installment amount.", nameof(amount));
+            }
+
+            installment.SetPaid("passig in a payment referced");
         }
 
         // Returns: Amount to refund via PaymentProvider
@@ -114,9 +130,12 @@ namespace QuadPay.Domain
             var initialPayment = new Installment(paymentAmountPerInstallment, OriginationDate);
             Installments.Add(initialPayment);
 
+            var paymentDate = OriginationDate;
             //other installments
-            for (var i = 1; i < NumberOfInstallments; i++) {
-                var installmentPayment = new Installment(paymentAmountPerInstallment, OriginationDate.AddDays(InstallmentIntervalDays));
+            for (var i = 1; i < NumberOfInstallments; i++) 
+            {
+                paymentDate = paymentDate.AddDays(InstallmentIntervalDays);
+                var installmentPayment = new Installment(paymentAmountPerInstallment, paymentDate);
                 Installments.Add(installmentPayment);
             }
 

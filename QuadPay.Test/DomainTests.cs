@@ -58,5 +58,6 @@ namespace QuadPay.Test
          */
 
         //Test the total installments owed shoudl add up to the original amount;
+        //Test for an invalid installment guid when calling MakePayment
     }
 }
