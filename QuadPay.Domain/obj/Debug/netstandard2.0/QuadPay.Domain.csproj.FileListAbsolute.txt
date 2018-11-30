@@ -1,0 +1,9 @@
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Domain\bin\Debug\netstandard2.0\QuadPay.Domain.deps.json
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Domain\bin\Debug\netstandard2.0\QuadPay.Domain.dll
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Domain\bin\Debug\netstandard2.0\QuadPay.Domain.pdb
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Domain\obj\Debug\netstandard2.0\QuadPay.Domain.csprojAssemblyReference.cache
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Domain\obj\Debug\netstandard2.0\QuadPay.Domain.csproj.CoreCompileInputs.cache
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Domain\obj\Debug\netstandard2.0\QuadPay.Domain.AssemblyInfoInputs.cache
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Domain\obj\Debug\netstandard2.0\QuadPay.Domain.AssemblyInfo.cs
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Domain\obj\Debug\netstandard2.0\QuadPay.Domain.dll
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Domain\obj\Debug\netstandard2.0\QuadPay.Domain.pdb

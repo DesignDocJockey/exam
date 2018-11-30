@@ -1,0 +1,50 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuadPay.Domain", "QuadPay.Domain\QuadPay.Domain.csproj", "{1CCF6E07-E7ED-4E97-AE04-522837A5C57C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuadPay.Test", "QuadPay.Test\QuadPay.Test.csproj", "{E7C66BAB-39BC-4CE0-8C41-BB21E3C921CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CCF6E07-E7ED-4E97-AE04-522837A5C57C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CCF6E07-E7ED-4E97-AE04-522837A5C57C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CCF6E07-E7ED-4E97-AE04-522837A5C57C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1CCF6E07-E7ED-4E97-AE04-522837A5C57C}.Debug|x64.Build.0 = Debug|Any CPU
+		{1CCF6E07-E7ED-4E97-AE04-522837A5C57C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1CCF6E07-E7ED-4E97-AE04-522837A5C57C}.Debug|x86.Build.0 = Debug|Any CPU
+		{1CCF6E07-E7ED-4E97-AE04-522837A5C57C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CCF6E07-E7ED-4E97-AE04-522837A5C57C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CCF6E07-E7ED-4E97-AE04-522837A5C57C}.Release|x64.ActiveCfg = Release|Any CPU
+		{1CCF6E07-E7ED-4E97-AE04-522837A5C57C}.Release|x64.Build.0 = Release|Any CPU
+		{1CCF6E07-E7ED-4E97-AE04-522837A5C57C}.Release|x86.ActiveCfg = Release|Any CPU
+		{1CCF6E07-E7ED-4E97-AE04-522837A5C57C}.Release|x86.Build.0 = Release|Any CPU
+		{E7C66BAB-39BC-4CE0-8C41-BB21E3C921CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7C66BAB-39BC-4CE0-8C41-BB21E3C921CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7C66BAB-39BC-4CE0-8C41-BB21E3C921CA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E7C66BAB-39BC-4CE0-8C41-BB21E3C921CA}.Debug|x64.Build.0 = Debug|Any CPU
+		{E7C66BAB-39BC-4CE0-8C41-BB21E3C921CA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E7C66BAB-39BC-4CE0-8C41-BB21E3C921CA}.Debug|x86.Build.0 = Debug|Any CPU
+		{E7C66BAB-39BC-4CE0-8C41-BB21E3C921CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7C66BAB-39BC-4CE0-8C41-BB21E3C921CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7C66BAB-39BC-4CE0-8C41-BB21E3C921CA}.Release|x64.ActiveCfg = Release|Any CPU
+		{E7C66BAB-39BC-4CE0-8C41-BB21E3C921CA}.Release|x64.Build.0 = Release|Any CPU
+		{E7C66BAB-39BC-4CE0-8C41-BB21E3C921CA}.Release|x86.ActiveCfg = Release|Any CPU
+		{E7C66BAB-39BC-4CE0-8C41-BB21E3C921CA}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4CE0EB7-6546-4730-85C6-9A059F597A88}
+	EndGlobalSection
+EndGlobal

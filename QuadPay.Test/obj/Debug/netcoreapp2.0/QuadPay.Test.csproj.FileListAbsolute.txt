@@ -1,0 +1,17 @@
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Test\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Test\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Test\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Test\bin\Debug\netcoreapp2.0\QuadPay.Test.deps.json
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Test\bin\Debug\netcoreapp2.0\QuadPay.Test.runtimeconfig.json
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Test\bin\Debug\netcoreapp2.0\QuadPay.Test.runtimeconfig.dev.json
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Test\bin\Debug\netcoreapp2.0\QuadPay.Test.dll
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Test\bin\Debug\netcoreapp2.0\QuadPay.Test.pdb
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Test\bin\Debug\netcoreapp2.0\QuadPay.Domain.dll
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Test\bin\Debug\netcoreapp2.0\QuadPay.Domain.pdb
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Test\obj\Debug\netcoreapp2.0\QuadPay.Test.csprojAssemblyReference.cache
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Test\obj\Debug\netcoreapp2.0\QuadPay.Test.csproj.CoreCompileInputs.cache
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Test\obj\Debug\netcoreapp2.0\QuadPay.Test.AssemblyInfoInputs.cache
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Test\obj\Debug\netcoreapp2.0\QuadPay.Test.AssemblyInfo.cs
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Test\obj\Debug\netcoreapp2.0\QuadPay.Test.csproj.CopyComplete
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Test\obj\Debug\netcoreapp2.0\QuadPay.Test.dll
+C:\Dev\quadpay\CSharp\QuadPay.API\QuadPay.Test\obj\Debug\netcoreapp2.0\QuadPay.Test.pdb
