@@ -14,7 +14,7 @@ namespace QuadPay.Domain
     {
         public Guid Id { get; private set; }
         public IList<Installment> Installments { get; private set; }
-        public IList<Refund> Refunds { get; }
+        public IList<Refund> Refunds { get; private set; }
         public DateTime OriginationDate { get; }
 
         public decimal TotalAmountOwed { get; private set; }
@@ -47,8 +47,11 @@ namespace QuadPay.Domain
         // Installments are paid in order by Date
         public Installment NextInstallment()
         {
-            // TODO
-            return new Installment();
+            var next = Installments.Where(i => i.IsPending)
+                           .OrderBy(i => i.Date)
+                           .FirstOrDefault();
+
+            return next;
         }
 
         public Installment FirstInstallment()
@@ -117,14 +120,23 @@ namespace QuadPay.Domain
         // Returns: Amount to refund via PaymentProvider
         public decimal ApplyRefund(Refund refund)
         {
-            var paidAmounts = Installments.Where(i => i.IsPaid).Sum(j => j.Amount);
+            var refundedAmount = Installments.Where(i => i.IsPaid).Sum(j => j.Amount);
 
-            //call Payment Provider to retrieve refund
-            //refund.Amount
+            if (Refunds == null) {
+                Refunds = new List<Refund>();
+            }
+            Refunds.Add(refund);
 
+            var refundBalance = refund.Amount;
+            foreach (var installment in Installments)
+            {
+                if(refundBalance >= installment.Amount)
+                    MakePayment(installment.Amount, installment.Id);
 
-            // TODO
-            return 0;
+                refundBalance = refundBalance - installment.Amount;
+            }
+
+            return refundedAmount;
         }
 
         // First Installment always occurs on PaymentPlan creation date
