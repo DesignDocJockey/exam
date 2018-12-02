@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace QuadPay.Domain
 {
-    public static class Defaults
+    public static class DefaultValues
     {
         public const int InstallmentCounts = 4;
         public const int InstallmentIntervalDays = 14;
@@ -21,7 +21,7 @@ namespace QuadPay.Domain
         public int NumberOfInstallments { get; private set; }
         public int InstallmentIntervalDays { get; private set; }
 
-        public PaymentPlan(decimal amount, int installmentCount = Defaults.InstallmentCounts, int installmentIntervalDays = Defaults.InstallmentIntervalDays)
+        public PaymentPlan(decimal amount, int installmentCount = DefaultValues.InstallmentCounts, int installmentIntervalDays = DefaultValues.InstallmentIntervalDays)
         {
             if (amount <= 0.0m || amount > Decimal.MaxValue)
                 throw new ArgumentException($"Invalid Parameter. {nameof(amount)}:{amount}");
@@ -35,12 +35,11 @@ namespace QuadPay.Domain
             //TODO::check that the number of days of installments cannot be less than the number of installments
             if (installmentIntervalDays > installmentCount) { }
 
+            Id = Guid.NewGuid();
             TotalAmountOwed = amount;
             NumberOfInstallments = installmentCount;
             InstallmentIntervalDays = installmentIntervalDays;
             OriginationDate = DateTime.Now;
-            Id = Guid.NewGuid();
-
             InitializeInstallments();
         }
 
@@ -70,32 +69,35 @@ namespace QuadPay.Domain
 
         public decimal AmountPastDue(DateTime currentDate)
         {
-            // TODO
-            return 0;
+            return Installments.Where(i => currentDate.CompareTo(i.Date) == 1 && i.IsPending == true)
+                                .Select(i => i.Amount)
+                                .Sum();
         }
 
         public IList<Installment> PaidInstallments()
         {
-            // TODO
-            return new List<Installment>();
+            return Installments.Where(i => i.IsPaid).ToList<Installment>();
         }
 
         public IList<Installment> DefaultedInstallments()
         {
-            // TODO
-            return new List<Installment>();
+            return Installments.Where(i => i.IsDefaulted).ToList<Installment>();
         }
 
         public IList<Installment> PendingInstallments()
         {
-            // TODO
-            return new List<Installment>();
+            return Installments.Where(i => i.IsPending).ToList<Installment>();
         }
 
         public decimal MaximumRefundAvailable()
         {
-            // TODO
-            return 0;
+            //Not really clear on the domain logic for refunds
+            var maxRefundAvailable = 0.0m;
+            if (Refunds != null) {
+                maxRefundAvailable = Refunds.Sum(i => i.Amount);
+            }
+
+            return maxRefundAvailable;
         }
 
         // We only accept payments matching the Installment Amount.
@@ -112,8 +114,8 @@ namespace QuadPay.Domain
             }
 
             //we call payment domain logic here, ie. service call or writing to an event stream
-            var paymentReferenceId = Guid.NewGuid(); //in this insstance, i'm just setting some guid to be the payment reference id, but a real-world implementation would
-            //call another service i.e 3rd party payment API
+            var paymentReferenceId = Guid.NewGuid(); //in this instance, i'm just setting some guid to be the payment reference id, 
+            //but an actual implementation could call another service i.e 3rd party payment API
             installment.SetPaid(paymentReferenceId.ToString());
         }
 
