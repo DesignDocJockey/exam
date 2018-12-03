@@ -32,9 +32,6 @@ namespace QuadPay.Domain
             if (installmentIntervalDays <= 0)
                 throw new ArgumentException($"Invalid Parameter. {nameof(installmentIntervalDays)}:{installmentIntervalDays}");
 
-            //TODO::check that the number of days of installments cannot be less than the number of installments
-            if (installmentIntervalDays > installmentCount) { }
-
             Id = Guid.NewGuid();
             TotalAmountOwed = amount;
             NumberOfInstallments = installmentCount;
